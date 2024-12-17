@@ -1,3 +1,4 @@
+
 <?php
 
 session_start();
@@ -25,12 +26,12 @@ if($_GET['teacher_id'])
 { 
 
    $t_id=$_GET['teacher_id'];
-   $sql="SELECT * FROM teacher WHERE id ='$t_id'";
+   $sql="SELECT * FROM teacher WHERE id='$t_id' ";
    $result=mysqli_query($data,$sql);
    $info=$result->fetch_assoc();
 }
 
-if(isset($_POST['update_teacher']))
+if (isset($_POST['update_teacher']))
 
 {
       $id=$_POST['id'];
@@ -57,7 +58,7 @@ else
 $result2=mysqli_query($data,$sql2);
 if($result2) {
   
-  header(' location: admin_view_teacher.php');
+  header('location:admin_view_teacher.php');
 
 }
 }
@@ -121,47 +122,46 @@ include 'admin_sidebar.php';
 
   <div class="content">
 
-  	<center>
+    <center>
     
    <h1> Update Teacher Data </h1>
 
-   <form class="form_deg" action="
-admin_update_teacher.php" method="POST" enctype="multipart/form-data">
+   <form class="form_deg" action="#" method="POST" enctype="multipart/form-data">
 
-<input type="text" name=" id " value="<?php echo "{$info['id']}" ?>" hidden>
-   	
+<input type="text" name="id" value="<?php echo "{$info['id']}" ?>" hidden>
+    
 <div>
-	<label> Teacher Name </label>
-	<input type="text" name="name" value="<?php echo "{$info['name']}" ?>">
+  <label> Teacher Name </label>
+  <input type="text" name="name" value="<?php echo "{$info['name']}" ?>">
 
 
 </div>
 
 <div>
-	<label>About Teacher </label>
-	<textarea name="description" rows="4"> <?php echo "{$info['description']}" ?> </textarea>
+  <label> About Teacher </label>
+  <textarea name="description" rows="4"> <?php echo "{$info['description']}" ?> </textarea>
 
 
 </div>
 
 <div>
-	<label>Teacher Old Image </label>
-	<img width="100px" height="100px" src="<?php echo "{$info['image']}" ?>">
+  <label>Teacher Old Image </label>
+  <img width="100px" height="100px" src="<?php echo "{$info['image']}" ?>">
 
 
 </div>
 
 <div>
-	<label> Choose Teacher New Image </label>
-	<input type="file" name="image">
+  <label> Choose Teacher New Image </label>
+  <input type="file" name="image">
 
 
 </div>
 
 
 <div>
-	
-	<input type="submit" name="update_teacher" class="btn btn-success">
+  
+  <input type="submit" name="update_teacher" class="btn btn-success">
 
 
 </div>
